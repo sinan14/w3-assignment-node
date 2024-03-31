@@ -1,0 +1,25 @@
+<h1>Job Applicants for <%= job.title %></h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Sl.No</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Resume</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% applicants.forEach((applicant,index )=> { %>
+    <tr>
+      <td><%= (index+1) %></td>
+      <td><%= applicant.name %></td>
+      <td><%= applicant.email %></td>
+      <td>
+        <a href="/uploads/<%= applicant.resume %>" target="_blank"
+          >View Resume</a
+        >
+      </td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>

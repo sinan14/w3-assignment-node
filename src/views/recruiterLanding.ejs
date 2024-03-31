@@ -1,0 +1,50 @@
+<div class="container mt-5">
+  <h1 class="text-center mb-5">Recruiter Dashboard</h1>
+
+  <!-- Section: Previous Job Postings -->
+  <div class="card mb-4">
+    <div class="card-header">
+      <h2>Previous Job Postings</h2>
+    </div>
+    <div class="card-body">
+      <!-- List of previous job postings -->
+      <ul class="list-group">
+        <% jobs.forEach(job => { %>
+        <li class="list-group-item">
+          <div class="row justify-content-between">
+            <div class="col-4">
+              <h3><%= job.title %></h3>
+            </div>
+            <div class="col-5"></div>
+            <div class="col-3">
+              <button type="button" class="btn btn-info">
+                <a href="/api/jobs/<%= job.id %>" class="text-decoration-none text-black">
+                  View
+                </a>
+              </button>
+              <button type="button" class="btn btn-warning">
+                <a href="/api/jobs/updatefrom/<%= job.id %>" class="text-decoration-none text-black">
+                  Edit
+                </a>
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger"
+                onclick="deleteJobPost('<%= job.id %>')"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </li>
+        <% }) %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Section: Create New Job Posting -->
+<div class="text-center">
+  <a href="/api/jobs/add" class="btn btn-primary">Create New Job Posting</a>
+</div>
+
